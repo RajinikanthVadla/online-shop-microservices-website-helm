@@ -53,9 +53,10 @@ Steps:
 ![Create Kubernetes Cluster on Linode](docs/img/createcluster.PNG)
 2. Download the *-kubeconfig.yaml file as using this file we will be connecting to the Linod Kubernetes cluster.
 ![After successful creation of the cluster](docs/img/successcluster.PNG)
-3. Open a terminal shell and save your kubeconfig file’s path to the `$KUBECONFIG` environment variable. In the example command, the kubeconfig file is located in the `Downloads` folder, but you should alter this line with this folder’s location on your computer:
-    
+3. Open a terminal shell and save your kubeconfig file’s path to the `$KUBECONFIG` environment variable. In the example command, the kubeconfig file is located in the `Downloads` folder, but you should alter this line with this folder’s location on your computer
+
     export KUBECONFIG=~/Downloads/kubeconfig.yaml
+
 ![Export of KUBECONFIG as ENV variable](docs/img/exportKubeconfig.PNG)
 4. Check if connection to the Linode Kubernetes Cluster is done or not by using:
 
