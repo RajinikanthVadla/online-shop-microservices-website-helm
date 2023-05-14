@@ -53,6 +53,9 @@ Steps:
 ![Create Kubernetes Cluster on Linode](docs/img/createcluster.PNG)
 2. Download the *-kubeconfig.yaml file as using this file we will be connecting to the Linod Kubernetes cluster.
 ![After successful creation of the cluster](docs/img/successcluster.PNG)
+6. Deploy the Kubernetes Manifest file using the below command
+    
+    kubectl apply -f online-shop-microservices/kubernetes-manifests.yaml -n online-boutique
 3. Open a terminal shell and save your kubeconfig file’s path to the `$KUBECONFIG` environment variable. In the example command, the kubeconfig file is located in the `Downloads` folder, but you should alter this line with this folder’s location on your computer
 
     export KUBECONFIG=~/Downloads/kubeconfig.yaml
