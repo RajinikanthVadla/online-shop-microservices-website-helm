@@ -64,6 +64,7 @@ Steps:
 5. Create a namespace to deploy all of our resouces.
 
     kubectl create ns online-boutique
+    
 ![Create Namespace](docs/img/createnamespace.PNG)
 6. Deploy the Kubernetes Manifest file using the below command
     
