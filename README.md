@@ -50,37 +50,46 @@ microservices](docs/img/architecture-diagram.png)](docs/img/architecture-diagram
 
 Steps:
 1. Create a Linode Kubernetes Cluster. Wait for the cluster nodes to get ready and start running (this may take few minutes).
-![Create Kubernetes Cluster on Linode](docs/img/createcluster.PNG)
-2. Download the *-kubeconfig.yaml file as using this file we will be connecting to the Linod Kubernetes cluster.
-![After successful creation of the cluster](docs/img/successcluster.PNG)
-6. Deploy the Kubernetes Manifest file using the below command
     
-    kubectl apply -f online-shop-microservices/kubernetes-manifests.yaml -n online-boutique
+    ![Create Kubernetes Cluster on Linode](docs/img/createcluster.PNG)
+
+2. Download the *-kubeconfig.yaml file as using this file we will be connecting to the Linod Kubernetes cluster.
+    
+    ![After successful creation of the cluster](docs/img/successcluster.PNG)
+
 3. Open a terminal shell and save your kubeconfig file’s path to the `$KUBECONFIG` environment variable. In the example command, the kubeconfig file is located in the `Downloads` folder, but you should alter this line with this folder’s location on your computer
 
     export KUBECONFIG=~/Downloads/kubeconfig.yaml
+    
+    ![Export of KUBECONFIG as ENV variable](docs/img/exportKubeconfig.PNG)
 
-![Export of KUBECONFIG as ENV variable](docs/img/exportKubeconfig.PNG)
 4. Check if connection to the Linode Kubernetes Cluster is done or not by using:
 
     kubectl get node
-![Check if connection to the Linode Kubernetes Cluster is done or not](docs/img/checkconnection.PNG)
+    
+    ![Check if connection to the Linode Kubernetes Cluster is done or not](docs/img/checkconnection.PNG)
+
 5. Create a namespace to deploy all of our resouces.
 
     kubectl create ns online-boutique
     
-![Create Namespace](docs/img/createnamespace.PNG)
+    ![Create Namespace](docs/img/createnamespace.PNG)
+
 6. Deploy the Kubernetes Manifest file using the below command
     
     kubectl apply -f online-shop-microservices/kubernetes-manifests.yaml -n online-boutique
-![Create Namespace](docs/img/deploy-k8s-manifest-file.PNG)
+
+    ![Create Namespace](docs/img/deploy-k8s-manifest-file.PNG)
+    
 7. To check all deployed resources use:
 
     kubectl get all -n online-boutique
+
 8. To access the front-end microservice, first get the port number in which the front-end service is exposed to using:
 
     kubectl get service -n online-boutique
-![Get Service Port](docs/img/get-service-port.PNG)
+    
+    ![Get Service Port](docs/img/get-service-port.PNG)
 
 The service can now be accessed using the any of the Node IP inside the cluster with the frontend service port number
 ![Check the webpage](docs/img/webpage-manifest.PNG)
@@ -95,7 +104,9 @@ Steps:
 3. Deploy the Helm Charts using Helmfile:
 
     helmfile sync -f online-shop-microservices/helmfile.yaml
-![Deployment of micro-services using helmfile](docs/img/deploy-using-helmfile.PNG)
+
+    ![Deployment of micro-services using helmfile](docs/img/deploy-using-helmfile.PNG)
+
 The log from helmfile sync command will be huge but it is good to go through it to understand what all services got deployed
 
 The service can now be accessed using the any of the Node IP inside the cluster with the frontend service port number
